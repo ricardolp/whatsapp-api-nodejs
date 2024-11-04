@@ -13,7 +13,7 @@ class Session {
             result.forEach((collection) => {
                 allCollections.push(collection.name)
             })
-
+            console.log(allCollections)
             allCollections.map((key) => {
                 const query = {}
                 db.collection(key)
@@ -33,6 +33,7 @@ class Session {
                         )
                         await instance.init()
                         WhatsAppInstances[key] = instance
+                        
                     })
                 restoredSessions.push(key)
             })

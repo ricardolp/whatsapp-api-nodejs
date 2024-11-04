@@ -29,6 +29,7 @@ exports.init = async (req, res) => {
 
 exports.qr = async (req, res) => {
     try {
+
         const qrcode = await WhatsAppInstances[req.query.key]?.instance.qr
         res.render('qrcode', {
             qrcode: qrcode,
@@ -43,6 +44,7 @@ exports.qr = async (req, res) => {
 exports.qrbase64 = async (req, res) => {
     try {
         const qrcode = await WhatsAppInstances[req.query.key]?.instance.qr
+
         res.json({
             error: false,
             message: 'QR Base64 fetched successfully',

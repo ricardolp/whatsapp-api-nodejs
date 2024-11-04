@@ -20,7 +20,7 @@ const useMongoDBAuthState = require('../helper/mongoAuthState')
 class WhatsAppInstance {
     socketConfig = {
         defaultQueryTimeoutMs: undefined,
-        printQRInTerminal: false,
+        printQRInTerminal: true,
         logger: pino({
             level: config.log.level,
         }),
@@ -88,7 +88,7 @@ class WhatsAppInstance {
         // on socket closed, opened, connecting
         sock?.ev.on('connection.update', async (update) => {
             const { connection, lastDisconnect, qr } = update
-
+          
             if (connection === 'connecting') return
 
             if (connection === 'close') {
